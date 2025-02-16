@@ -1,0 +1,124 @@
+ /* General Reset */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ff6b6b, #ffcc5c, #88d8b0, #6a89cc);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s infinite ease-in-out;
+    overflow: hidden;
+    text-align: center;
+}
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Birthday Card */
+.birthday-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+}
+
+h2 {
+    color: #ff4081;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+
+
+/* Confetti Canvas */
+button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+#surprise1 {
+    background: #ff4081;
+    color: white;
+}
+
+#surprise1:hover {
+    background: #e03570;
+    transform: scale(1.1);
+}
+
+#surprise2 {
+    background: #ff9800;
+    color: white;
+}
+
+#surprise2:hover {
+    background: #e08900;
+    transform: scale(1.1);
+}
+
+/* Surprise Message */
+#message {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4081;
+}
+
+/* Floating Images */
+.floating-images img {
+    width: 150px;
+    border-radius: 50px;
+    position: absolute;
+    animation: float 5s infinite alternate ease-in-out;
+}
+
+.img1 { top: 10%; left: 5%; }
+.img2 { top: 8%; right: 5%; }
+.img3 { bottom: 10%; left: 10%; }
+.img4 { top: 18%; right: 38%; }
+.img5 { top: 40%; left: 15%; }
+.img6 { bottom: 2%; right: 30%; }
+.img7 { bottom: 2%; right: 10%; }
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-20px); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .birthday-card {
+        width: 95%;
+    }
+}

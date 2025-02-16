@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+</head>
+  <style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Birthday Card */
+.birthday-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+}
+
+h2 {
+    color: #ff4081;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#surprise1 {
+    background: #ff4081;
+    color: white;
+}
+
+#surprise1:hover {
+    background: #e03570;
+    transform: scale(1.1);
+}
+
+#surprise2 {
+    background: #ff9800;
+    color: white;
+}
+
+#surprise2:hover {
+    background: #e08900;
+    transform: scale(1.1);
+}
+
+/* Surprise Message */
+#message {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff4081;
+}
+
+
+
+/* Floating Images */
+.floating-images img {
+    width: 100px;
+    position: absolute;
+    animation: float 5s infinite alternate ease-in-out;
+}
+
+.img1 { top: 20%; left: 2%; }
+.img2 { top: 18%; right: 5%; }
+.img3 { bottom: 10%; left: 10%; }
+.img4 { top: 2%; right: 40%; }
+.img5 { top: 40%; left: 25%; }
+.img6 { bottom: 5%; left: 50%; }
+.img7 { bottom: 19%; right: 10%; }
+
+
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-20px); }
+}
+
+
+
+/* Responsive */
+@media (max-width: 600px) {
+    .birthday-card {
+        width: 95%;
+    }
+
+    .floating-images img {
+        overflow: hidden;
+    }
+}
+
+  </style>
+<body>
+
+    <div class="floating-images" >
+        <img src="1.jpg" class="float-img  img1"   alt="1">
+        <img src="2.jpg" class="float-img img2"   alt="2">
+        <img src="3.jpg" class="float-img img3"  alt="3">
+        <img src="4.jpg" class="float-img img4"  alt="4">
+        <img src="2.jpg" class="float-img img5"  alt="5">
+        <img src="5.jpg" class="float-img img6"  alt="6">
+        <img src="3.jpg" class="float-img img7"  alt="7">
+    </div>
+
+    <div class="birthday-card">
+        <h2>Happy Birthday, <span id="name">Special One!</span> 🎉</h2>
+        <p>Wishing you all the happiness in the world on your special day! 🎂🎁</p>
+
+        <div class="buttons">
+            <button id="surprise1">Click for a Surprise! 🎈</button>
+            <button id="surprise2">Another Surprise! 🎊</button>
+        </div>
+        
+        <p id="message"></p>
+    </div>
+
+    <script>
+
+
+
+
+
+      document.getElementById("surprise1").addEventListener("click", function() {
+    document.getElementById("message").innerHTML = "🎂 You are amazing! Enjoy your special day! 🎈";
+});
+
+
+    document.getElementById("surprise1").addEventListener("click", function() {
+    document.getElementById("message").classList.remove("hidden");
+    launchConfetti();
+
+});
+
+document.getElementById("surprise2").addEventListener("click", function() {
+    document.getElementById("message").innerHTML = "💖 Sending love, joy, and lots of birthday hugs your way! 🎁";
+});
+
+document.getElementById("surprise2").addEventListener("click", function() {
+    document.getElementById("message").classList.remove("hidden");
+    launchConfetti();
+
+});
+
+
+/* Confetti Effect */
+function launchConfetti() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+    </script>
+</body>
+</html>
