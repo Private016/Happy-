@@ -22,10 +22,20 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(45deg, #ff6b6b, #ff7eb3, #f46262, #f56b6b);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s infinite ease-in-out;    
     overflow: hidden;
     text-align: center;
 }
+
+/* Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 /* Birthday Card */
 .birthday-card {
@@ -33,8 +43,8 @@ body {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 90%;
+    max-width: 350px;
+    width: 80%;
     position: relative;
     z-index: 10;
 }
@@ -54,6 +64,7 @@ p {
 .buttons {
     display: flex;
     justify-content: space-around;
+    gap: 10px;
     margin-top: 15px;
 }
 
@@ -100,16 +111,17 @@ button {
 .floating-images img {
     width: 100px;
     position: absolute;
+    border-radius: 50%;
     animation: float 5s infinite alternate ease-in-out;
 }
 
-.img1 { top: 20%; left: 2%; }
-.img2 { top: 18%; right: 5%; }
-.img3 { bottom: 10%; left: 10%; }
+.img1 { top: 25%; left: 2%; }
+.img2 { top: 18%; right: 5%; }  
+.img3 { bottom: 12%; left: 10%; }
 .img4 { top: 2%; right: 40%; }
-.img5 { top: 40%; left: 25%; }
+.img5 { top: 48%; left: 20%; }
 .img6 { bottom: 5%; left: 50%; }
-.img7 { bottom: 19%; right: 10%; }
+.img7 { bottom: 15%; right: 10%; }
 
 
 
@@ -189,7 +201,7 @@ function launchConfetti() {
     confetti({
         particleCount: 100,
         spread: 70,
-        origin: { y: 0.6 }
+        origin: { y: 0.7 }
     });
 }
     </script>
