@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday!</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
-  <style>
-    /* General Reset */
-* {
+<style>
+      /* Reset */
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -21,12 +19,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(45deg, #ff6b6b, #ff7eb3, #f46262, #f56b6b);
-    background-size: 400% 400%;
-    animation: gradientAnimation 8s infinite ease-in-out;    
-    overflow: hidden;
+    height: 100vh;
     text-align: center;
+    background: linear-gradient(135deg, #ff6b6b, #ff7eb3, #ffae42, #ff758c);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s infinite ease-in-out;        color: white;
+    padding: 20px;
 }
 
 /* Gradient Animation */
@@ -36,174 +34,105 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-
-/* Birthday Card */
-.birthday-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    max-width: 350px;
-    width: 80%;
-    position: relative;
-    z-index: 10;
+h2{
+    color: #6a4df7;
 }
 
-h2 {
-    color: #ff4081;
-    margin-bottom: 10px;
-}
-
-p {
-    color: #555;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-/* Buttons */
-.buttons {
+/* Container */
+.container {
     display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    margin-top: 15px;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Image */
+.image-container img {
+    width: 100px;
+    height: 100px;
+    margin: 15px 0;
+    border-radius: 50px;
+    animation: bounce 2s infinite;
+}
+
+/* Button */
 button {
-    padding: 10px 15px;
-    font-size: 14px;
+
+    background: linear-gradient(90deg, #ff4081, #ff9800);
     border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: 0.3s ease;
 }
+button a{
+    text-decoration: none;
 
-#surprise1 {
-    background: #ff4081;
-    color: white;
 }
-
-#surprise1:hover {
-    background: #e03570;
-    transform: scale(1.1);
-}
-
-#surprise2 {
-    background: #ff9800;
-    color: white;
-}
-
-#surprise2:hover {
-    background: #e08900;
-    transform: scale(1.1);
+button:hover {
+    background: linear-gradient(90deg, #ff9800, #ff4081);
 }
 
 /* Surprise Message */
-#message {
+.hidden {
+    display: none;
+    font-size: 22px;
     margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #ff4081;
+    animation: fadeIn 2s ease-in-out;
 }
 
-
-
-/* Floating Images */
-.floating-images img {
-    width: 100px;
-    position: absolute;
-    border-radius: 50%;
-    animation: float 5s infinite alternate ease-in-out;
+/* Animations */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-.img1 { top: 25%; left: 2%; }
-.img2 { top: 18%; right: 5%; }  
-.img3 { bottom: 12%; left: 10%; }
-.img4 { top: 2%; right: 40%; }
-.img5 { top: 48%; left: 20%; }
-.img6 { bottom: 5%; left: 50%; }
-.img7 { bottom: 15%; right: 10%; }
-
-
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-20px); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-
-
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 600px) {
-    .birthday-card {
-        width: 95%;
-    }
-
-    .floating-images img {
-        overflow: hidden;
+    .container {
+        width: 90%;
     }
 }
-
-  </style>
+</style>
+ 
 <body>
 
-    <div class="floating-images" >
-        <img src="1.jpg" class="float-img  img1"   alt="1">
-        <img src="2.jpg" class="float-img img2"   alt="2">
-        <img src="3.jpg" class="float-img img3"  alt="3">
-        <img src="4.jpg" class="float-img img4"  alt="4">
-        <img src="2.jpg" class="float-img img5"  alt="5">
-        <img src="5.jpg" class="float-img img6"  alt="6">
-        <img src="3.jpg" class="float-img img7"  alt="7">
-    </div>
+    <div class="container">
+        <h1>🎂 Happy Birthday! 🎂</h1>
 
-    <div class="birthday-card">
-        <h2>Happy Birthday, <span id="name">Special One!</span> 🎉</h2>
-        <p>Wishing you all the happiness in the world on your special day! 🎂🎁</p>
+        <div class="image-container">
+            <img src="Happy.webp" alt="Birthday Cake">
 
-        <div class="buttons">
-            <button id="surprise1">Click for a Surprise! 🎈</button>
-            <button id="surprise2">Another Surprise! 🎊</button>
+            <h2>Wishing you absolute best on your special day and always 🎂🥂May this year be filled with love , laughter and all your heart's desires🤍stay healthy and happy 😊
+            </h2>
         </div>
-        
-        <p id="message"></p>
+
+        <button id="surpriseBt"> <a href="Card.html"> Click for Surprise!</a></button>
+
+       
+
     </div>
 
     <script>
+      document.getElementById("surpriseBtn").addEventListener("click", function() {
+    let message = document.getElementById("Card.html");
+    let song = document.getElementById("birthdaySong");
 
-
-
-
-
-      document.getElementById("surprise1").addEventListener("click", function() {
-    document.getElementById("message").innerHTML = "🎂 You are amazing! Enjoy your special day! 🎈";
+    message.classList.toggle("hidden");
+    song.play();
 });
 
-
-    document.getElementById("surprise1").addEventListener("click", function() {
-    document.getElementById("message").classList.remove("hidden");
-    launchConfetti();
-
-});
-
-document.getElementById("surprise2").addEventListener("click", function() {
-    document.getElementById("message").innerHTML = "💖 Sending love, joy, and lots of birthday hugs your way! 🎁";
-});
-
-document.getElementById("surprise2").addEventListener("click", function() {
-    document.getElementById("message").classList.remove("hidden");
-    launchConfetti();
-
-});
-
-
-/* Confetti Effect */
-function launchConfetti() {
-    confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.7 }
-    });
-}
     </script>
 </body>
 </html>

@@ -1,0 +1,96 @@
+
+<!-- Create a new file named 'surprise.html' for the slideshow -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b, #ff7eb3, #ffae42, #ff758c);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s infinite ease-in-out;          }
+        /* Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+        .slideshow-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            perspective: 2000px;
+        }
+        .slideshow {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotate 10s linear infinite;
+        }
+        .slideshow img {
+            width: 200px;
+            height: 350px;
+            position: absolute;
+            transform-origin: center;
+            border-radius: 1%;
+        }
+        @keyframes rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        .floating-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .floating-background span {
+            position: absolute;
+            font-size: 20px;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+
+    
+    <div class="slideshow-container">
+
+        <div class="slideshow">
+            <img src="I1.jpg" style="transform: rotateY(0deg) translateZ(300px);">
+            <img src="L2.jpg" style="transform: rotateY(40deg) translateZ(300px);">
+            <img src="L3.jpg" style="transform: rotateY(80deg) translateZ(300px);">
+            <img src="I4.jpg" style="transform: rotateY(120deg) translateZ(300px);">
+            <img src="I5.jpg" style="transform: rotateY(160deg) translateZ(300px);">
+            <img src="I6.jpg" style="transform: rotateY(200deg) translateZ(300px);">
+            <img src="I7.jpg" style="transform: rotateY(240deg) translateZ(300px);">
+            <img src="I8.jpg" style="transform: rotateY(280deg) translateZ(300px);">
+            <img src="I9.jpg" style="transform: rotateY(3200deg) translateZ(300px);">
+            <img src="I10.jpg" style="transform: rotateY(3600deg) translateZ(300px);">
+
+            <audio id="birthdaySong" src="just-relax-11157.mp3"></audio>
+
+        </div>
+
+       
+
+    </div>
+
+
+    <script>
+        message.classList.toggle("");
+        song.play();
+    </script>
+</body>
+</html>

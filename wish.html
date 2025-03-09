@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Birthday Wish Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff6b6b, #ff7eb3, #ffae42, #ff758c);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s infinite ease-in-out;          }
+        /* Gradient Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+button a{
+    text-decoration: none;
+
+}
+        .card {
+            position: relative;
+            width: 80%;
+            max-width: 400px;
+            height: auto;
+            color: #ff7eb3;
+            background: linear-gradient(135deg, #eaa9e0, #fad0c4);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+            animation: float 3s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        h1 {
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .surprise-btn {
+            padding: 10px 20px;
+            background: #ff4081;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .surprise-btn:hover {
+            background: #e91e63;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .send-btn {
+            padding: 10px 20px;
+            background: #ff406d;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .send-btn:hover {
+            background: #e91e63;
+        }
+        button {
+
+background: linear-gradient(90deg, #ff4081, #ff9800);
+border: none;
+margin-top: 20px;
+padding: 12px 20px;
+font-size: 18px;
+font-weight: bold;
+color: white;
+border-radius: 20px;
+cursor: pointer;
+transition: 0.3s ease;
+}
+img{
+    width: 150px;
+    height: 15  0px;
+}
+    </style>
+</head>
+<body>
+    
+    
+    <div class="hidden-page" id="wishPage">
+        <div class="form-container">
+            <img src="wish.webp" alt="Birthday Cake">
+            <h2>Send Your Birthday Wish</h2>
+            
+            <textarea id="message" placeholder="Your Wish" required></textarea>
+            <button class="send-btn" onclick="sendEmail()">Send Wish</button>
+        </div>
+        <button id="surpriseBt"> <a href="Card.html"> back</a></button>
+
+    </div>
+    
+    <script>
+        function showWishPage() {
+            document.getElementById("wishPage").style.display = "flex";
+        }
+        
+        function sendEmail() {
+            emailjs.init("6wWRCNoTHNV6dO5er");
+            
+            let templateParams = {
+                
+                message: document.getElementById("message").value
+            };
+            
+            emailjs.send("service_595miq6", "template_x9izn1l", templateParams)
+                .then(response => {
+                    alert("Wish sent successfully!");
+                    document.getElementById("wishPage").style.display = "none";
+                }, error => {
+                    alert("Failed to send wish. Please try again.");
+                });
+        }
+    </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
- /* General Reset */
- * {
+  /* Reset */
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,13 +10,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(45deg, #ff6b6b, #ff7eb3, #f46262, #f56b6b);
-    background-size: 400% 400%;
-    animation: gradientAnimation 8s infinite ease-in-out;
-    overflow: hidden;
+    height: 100vh;
     text-align: center;
+    background: linear-gradient(135deg, #ff6b6b, #ff7eb3, #ffae42, #ff758c);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s infinite ease-in-out;        color: white;
+    padding: 20px;
 }
+
 /* Gradient Animation */
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
@@ -24,101 +25,73 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Birthday Card */
-.birthday-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
-    width: 90%;
-    position: relative;
-    z-index: 10;
+h2{
+    color: #6a4df7;
 }
 
-h2 {
-    color: #ff4081;
-    margin-bottom: 10px;
-}
-
-p {
-    color: #555;
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-/* Buttons */
-.buttons {
+/* Container */
+.container {
     display: flex;
-    justify-content: space-around;
-    gap: 10px;
-    margin-top: 15px;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Image */
+.image-container img {
+    width: 100px;
+    height: 100px;
+    margin: 15px 0;
+    border-radius: 50px;
+    animation: bounce 2s infinite;
+}
 
-
-/* Confetti Canvas */
+/* Button */
 button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-}
 
-#surprise1 {
-    background: #ff4081;
+    background: linear-gradient(90deg, #ff4081, #ff9800);
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: bold;
     color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
+button a{
+    text-decoration: none;
 
-#surprise1:hover {
-    background: #e03570;
-    transform: scale(1.1);
 }
-
-#surprise2 {
-    background: #ff9800;
-    color: white;
-}
-
-#surprise2:hover {
-    background: #e08900;
-    transform: scale(1.1);
+button:hover {
+    background: linear-gradient(90deg, #ff9800, #ff4081);
 }
 
 /* Surprise Message */
-#message {
+.hidden {
+    display: none;
+    font-size: 22px;
     margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #ff4081;
+    animation: fadeIn 2s ease-in-out;
 }
 
-/* Floating Images */
-.floating-images img {
-    width: 150px;
-    border-radius: 50px;
-    position: absolute;
-    animation: float 5s infinite alternate ease-in-out;
+/* Animations */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-.img1 { top: 10%; left: 5%; }
-.img2 { top: 8%; right: 5%; }
-.img3 { bottom: 10%; left: 10%; }
-.img4 { top: 18%; right: 38%; }
-.img5 { top: 40%; left: 15%; }
-.img6 { bottom: 2%; right: 30%; }
-.img7 { bottom: 2%; right: 10%; }
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-20px); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-/* Responsive */
+/* Responsive Design */
 @media (max-width: 600px) {
-    .birthday-card {
-        width: 95%;
+    .container {
+        width: 90%;
     }
 }
